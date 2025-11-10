@@ -22,6 +22,9 @@ jobs:
       - name: Show files
         run: ls -l
 
+      - name: Check git status
+        run: git status
+
       - name: Commit and Push
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -31,8 +34,3 @@ jobs:
           git add clock.png || echo "No image to add"
           git commit -m "Update clock image" || echo "No changes to commit"
           git push --force https://x-access-token:${TOKEN}@github.com/code-jpn/clock.git
-      - name: Check git status
-        run: git status
-
-
-

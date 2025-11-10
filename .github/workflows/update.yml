@@ -1,0 +1,22 @@
+name: Update Clock Image
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # 10分ごとに実行
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install ImageMagick
+        run: sudo apt-get install imagemagick
+      - name: Generate Clock Image
+        run: bash generate_clock.sh
+      - name: Commit and Push
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add clock.png
+          git commit -m "Update clock image"
+          git push

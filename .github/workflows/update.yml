@@ -2,7 +2,7 @@ name: Update Clock Image
 
 on:
   schedule:
-    - cron: '*/1 * * * *'  # 10分ごとに実行
+    - cron: '*/5 * * * *'  # 10分ごとに実行
   workflow_dispatch:        # 手動実行もOK！
 
 jobs:

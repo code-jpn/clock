@@ -18,11 +18,13 @@ jobs:
 
       - name: Show files
         run: ls -l
-
+  
       - name: Commit and Push
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add clock.png || echo "No image to add"
-          git commit -m "Update clock image" || echo "No changes to commit"
-          git push
+    env:
+      TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    run: |
+      git config user.name "GitHub Actions"
+      git config user.email "actions@github.com"
+      git add clock.png || echo "No image to add"
+      git commit -m "Update clock image" || echo "No changes to commit"
+      git push https://x-access-token:${TOKEN}@github.com/code-jpn/clock.git

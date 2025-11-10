@@ -1,5 +1,5 @@
 #!/bin/bash
 export TZ=Asia/Tokyo
 DATE=$(date '+%Y-%m-%d %H:%M:%S')
-convert -size 250x40 xc:transparent -gravity center \
-  -pointsize 24 -annotate 0 "$DATE" clock.png
+convert -background transparent -fill black -pointsize 24 \
+label:"$DATE" -trim clock.png

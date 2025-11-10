@@ -12,7 +12,7 @@ jobs:
       - name: Install ImageMagick
         run: sudo apt-get install imagemagick
       - name: Generate Clock Image
-        run: bash generate_clock.sh
+        run: bash 0.sh
       - name: Commit and Push
         run: |
           git config user.name "GitHub Actions"
